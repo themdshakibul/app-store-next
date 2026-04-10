@@ -1,23 +1,55 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-
 import navLogo from "../../assets/logo.png";
 import { FaGithub } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
+  const pathName = usePathname();
   const navItems = (
     <>
       <li>
-        <Link href={"/"}>Home</Link>
+        <Link
+          className={
+            pathName === "/" ? "bg-purple-700 text-white font-bold" : ""
+          }
+          href={"/"}
+        >
+          Home
+        </Link>
       </li>
       <li>
-        <Link href={"/apps"}>Apps</Link>
+        <Link
+          className={
+            pathName === "/apps" ? "bg-purple-700 text-white font-bold" : ""
+          }
+          href={"/apps"}
+        >
+          Apps
+        </Link>
       </li>
       <li>
-        <Link href={"/installation"}>Installition</Link>
+        <Link
+          className={
+            pathName === "/installation"
+              ? "bg-purple-700 text-white font-bold"
+              : ""
+          }
+          href={"/installation"}
+        >
+          Installition
+        </Link>
       </li>
       <li>
-        <Link href={"/dashbord"}>Dashbord</Link>
+        <Link
+          className={
+            pathName === "/dashbord" ? "bg-purple-700 text-white font-bold" : ""
+          }
+          href={"/dashbord"}
+        >
+          Dashbord
+        </Link>
       </li>
     </>
   );
@@ -58,8 +90,8 @@ const NavBar = () => {
             </div>
             <Image width={40} height={40} alt="" src={navLogo} />
           </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{navItems}</ul>
+          <div className="navbar-center hidden lg:flex ">
+            <ul className="menu menu-horizontal px-1 gap-5">{navItems}</ul>
           </div>
           <div className="navbar-end">
             <a className="btn bg-blue-700 font-bold text-white">
