@@ -1,58 +1,27 @@
-"use client";
 import Image from "next/image";
-import Link from "next/link";
 import navLogo from "../../assets/logo.png";
 import { FaGithub } from "react-icons/fa";
-import { usePathname } from "next/navigation";
+import MyLink from "./MyLink";
 
 const NavBar = () => {
-  const pathName = usePathname();
-  const navItems = (
-    <>
-      <li>
-        <Link
-          className={
-            pathName === "/" ? "bg-purple-700 text-white font-bold" : ""
-          }
-          href={"/"}
-        >
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          className={
-            pathName === "/apps" ? "bg-purple-700 text-white font-bold" : ""
-          }
-          href={"/apps"}
-        >
-          Apps
-        </Link>
-      </li>
-      <li>
-        <Link
-          className={
-            pathName === "/installation"
-              ? "bg-purple-700 text-white font-bold"
-              : ""
-          }
-          href={"/installation"}
-        >
-          Installition
-        </Link>
-      </li>
-      <li>
-        <Link
-          className={
-            pathName === "/dashbord" ? "bg-purple-700 text-white font-bold" : ""
-          }
-          href={"/dashbord"}
-        >
-          Dashbord
-        </Link>
-      </li>
-    </>
-  );
+  const navItems = [
+    {
+      path: "/",
+      text: "Home",
+    },
+    {
+      path: "/apps",
+      text: "Apps",
+    },
+    {
+      path: "/installation",
+      text: "installition",
+    },
+    {
+      path: "/dashbord",
+      text: "Deshbord",
+    },
+  ];
 
   return (
     <section>
@@ -85,13 +54,23 @@ const NavBar = () => {
                 tabIndex="-1"
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
-                {navItems}
+                {navItems.map((item, ind) => (
+                  <MyLink key={ind} href={item.path}>
+                    {item.text}
+                  </MyLink>
+                ))}
               </ul>
             </div>
             <Image width={40} height={40} alt="" src={navLogo} />
           </div>
           <div className="navbar-center hidden lg:flex ">
-            <ul className="menu menu-horizontal px-1 gap-5">{navItems}</ul>
+            <ul className="menu menu-horizontal px-1 gap-5 flex items-center">
+              {navItems.map((item, ind) => (
+                <MyLink key={ind} href={item.path}>
+                  {item.text}
+                </MyLink>
+              ))}
+            </ul>
           </div>
           <div className="navbar-end">
             <a className="btn bg-blue-700 font-bold text-white">
