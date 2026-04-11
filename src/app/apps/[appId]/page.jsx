@@ -3,6 +3,7 @@ import reatingImage from "../../../assets/icon-ratings.png";
 import reviewImages from "../../../assets/icon-review.png";
 import Image from "next/image";
 import RatingsChart from "@/Components/Ui/RatingsChart";
+import InstallBtn from "@/Components/Ui/InstallBtn";
 
 const appPromis = async function () {
   const res = await fetch("http://localhost:3000/data.json");
@@ -80,9 +81,7 @@ const AppsDetailsPage = async ({ params }) => {
             </div>
 
             {/* Install Button */}
-            <button className="btn btn-success btn-lg px-10 font-bold text-white shadow-md hover:shadow-lg transition-all">
-              Install Now ({app.size} MB)
-            </button>
+            <InstallBtn app={app} />
           </div>
         </div>
 

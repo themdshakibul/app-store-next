@@ -8,7 +8,7 @@ const loading = () => {
       <SyncLoader size={20} color="#06b6d4" />
 
       <h2 className="text-2xl font-bold text-gray-700 animate-pulse">
-        Loading App ...
+        Loading App Details...
       </h2>
     </div>
   );
