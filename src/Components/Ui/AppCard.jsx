@@ -13,10 +13,10 @@ const AppCard = ({ app }) => {
       >
         <Image
           src={app.image}
-          alt="th"
-          height={200}
-          width={200}
-          className="rounded-3xl w-full"
+          alt={app.title}
+          width={80}
+          height={80}
+          className="rounded-xl object-contain w-full"
         />
 
         <h4 className="text-3xl font-semibold">{app.title}</h4>

@@ -8,7 +8,7 @@ export const metadata = {
 const AppsPage = () => {
   return (
     <div>
-      <TrendingApps />
+      <TrendingApps from="apps" />
     </div>
   );
 };
