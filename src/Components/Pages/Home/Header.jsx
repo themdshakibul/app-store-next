@@ -1,6 +1,6 @@
-import playStore from "../../assets/PlayStore.png";
-import appStore from "../../assets/AppStor.png";
-import hederImges from "../../assets/hero.png";
+import playStore from "../../../assets/PlayStore.png";
+import appStore from "../../../assets/AppStor.png";
+import hederImges from "../../../assets/hero.png";
 import Image from "next/image";
 
 const Heder = () => {
