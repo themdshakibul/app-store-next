@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 function UseData() {
   const [apps, setApps] = useState([]);
-  const [loading, setLoadig] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +16,7 @@ function UseData() {
     fetchData();
   }, []);
 
-  return { apps, loading };
+  return { apps };
 }
 
 export default UseData;
