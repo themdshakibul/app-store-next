@@ -11,6 +11,17 @@ const appPromis = async function () {
   return data;
 };
 
+export async function generateMetadata({ params }) {
+  const { appId } = await params;
+  const apps = await appPromis();
+  const app = apps.find((app) => app.id === Number(appId));
+
+  return {
+    title: `${app.title} App - Store`,
+    description: app.description,
+  };
+}
+
 const AppsDetailsPage = async ({ params }) => {
   const apps = await appPromis();
   const { appId } = await params;

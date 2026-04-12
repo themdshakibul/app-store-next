@@ -2,13 +2,21 @@
 
 import { InstallAppContext } from "@/Context/ContextApi";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 const InstallBtn = ({ app }) => {
-  const somthing = useContext(InstallAppContext);
-  console.log(somthing, "somthing ");
+  const { installApp, setInstallApp } = useContext(InstallAppContext);
 
   const handelInstall = () => {
-    console.log("hand", handelInstall);
+    const alreadyInstalled = installApp.find((item) => item.id === app.id);
+
+    if (alreadyInstalled) {
+      toast.error(`${app.title} already installed!`);
+      return;
+    }
+
+    setInstallApp([...installApp, app]);
+    toast.success(`${app.title} successfully installed!`);
   };
 
   return (
