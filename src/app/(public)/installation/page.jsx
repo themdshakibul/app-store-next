@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useContext } from "react";
-import downloadImage from "../../assets/icon-downloads.png";
-import reatingImage from "../../assets/icon-ratings.png";
+import downloadImage from "../../../assets/icon-downloads.png";
+import reatingImage from "../../../assets/icon-ratings.png";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";

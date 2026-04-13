@@ -29,9 +29,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <Proverder>
-          <NavBar />
           {children}
-          <Footer />
           <ToastContainer />
         </Proverder>
       </body>

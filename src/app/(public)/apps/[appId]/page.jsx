@@ -1,9 +1,11 @@
-import downloadImage from "../../../assets/icon-downloads.png";
-import reatingImage from "../../../assets/icon-ratings.png";
-import reviewImages from "../../../assets/icon-review.png";
+// import downloadImage from "../../../assets/icon-downloads.png";
+import downloadImage from "../../../../assets/icon-downloads.png";
+import reatingImage from "../../../../assets/icon-ratings.png";
+import reviewImages from "../../../../assets/icon-review.png";
 import Image from "next/image";
 import RatingsChart from "@/Components/Ui/RatingsChart";
 import InstallBtn from "@/Components/Ui/InstallBtn";
+import { notFound } from "next/navigation";
 
 const appPromis = async function () {
   const res = await fetch("https://app-store-next-rosy.vercel.app/data.json", {
@@ -18,6 +20,11 @@ export async function generateMetadata({ params }) {
   const apps = await appPromis();
   const app = apps.find((app) => app.id === Number(appId));
 
+  if (!app) {
+    return {
+      title: `NoT Found App - Store`,
+    };
+  }
   return {
     title: `${app.title} App - Store`,
     description: app.description,
@@ -28,6 +35,10 @@ const AppsDetailsPage = async ({ params }) => {
   const apps = await appPromis();
   const { appId } = await params;
   const app = apps.find((app) => app.id === Number(appId));
+
+  if (!app) {
+    notFound();
+  }
 
   const totalRating = app.ratings.reduce((sum, itm) => sum + itm.count, 0);
 
