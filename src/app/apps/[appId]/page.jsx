@@ -6,7 +6,9 @@ import RatingsChart from "@/Components/Ui/RatingsChart";
 import InstallBtn from "@/Components/Ui/InstallBtn";
 
 const appPromis = async function () {
-  const res = await fetch("http://localhost:3000/data.json");
+  const res = await fetch("http://localhost:3000/data.json", {
+    cache: "no-store",
+  });
   const data = await res.json();
   return data;
 };
